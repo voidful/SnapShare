@@ -21,7 +21,7 @@ class Connecter extends React.Component {
     render() {
         return (
             <section id="banner" style={{z_index: -1, position: 'relative'}}>
-                <QRCode value={this.state.token} size="256"/>
+                <QRCode value={this.state.token} size={512} renderAs={'svg'} />
             </section>
         );
     }
