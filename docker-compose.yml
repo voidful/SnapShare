@@ -1,0 +1,17 @@
+version: '2'
+services:
+  snapshare-web-server:
+    build: './website'
+    restart: always
+    container_name: snapshare-web-server
+    expose:
+      - 80
+    ports:
+      - "80:80"
+    networks:
+      - apiproxy
+
+networks:
+  apiproxy:
+    driver: bridge
+
