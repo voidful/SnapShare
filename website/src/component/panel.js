@@ -16,8 +16,8 @@ class Panel extends React.Component {
 
         this.socket.on('message_sent', (message) => {
             console.log('message_sent', message)
-            let url = message['body']['link']
-            if (!url.match(/^http?:\/\//i) || !url.match(/^https?:\/\//i)) {
+            let url = message['body']['link'];
+            if (!url.match(/^http?:\/\//i) && !url.match(/^https?:\/\//i)) {
                 url = 'http://' + url;
             }
             window.location = url;
