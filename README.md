@@ -1,4 +1,4 @@
-# [SnapShare](snapshare.link)
+# [SnapShare](https://snapshare.link)
 <p align="center">
     <br>
     <img src="https://raw.githubusercontent.com/voidful/SnapShare/master/website/public/logo512.png" width="400"/>
