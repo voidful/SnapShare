@@ -13,3 +13,15 @@
     background-image: linear-gradient(to bottom right, #002f4b, #11998e);
     opacity: .6;
 }
+
+.panel-body {
+    background-position: initial initial;
+    background-repeat: initial initial;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(to bottom right, #002f4b, #11998e);
+    z-index: 10;
+}
