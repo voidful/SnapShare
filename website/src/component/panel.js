@@ -20,7 +20,7 @@ class Panel extends React.Component {
             if (!url.match(/^http?:\/\//i) && !url.match(/^https?:\/\//i)) {
                 url = 'http://' + url;
             }
-            window.open(url, "_blank");
+            window.open(url, "_blank", 'noopener,noreferrer');
         })
     }
 
