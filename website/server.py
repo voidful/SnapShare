@@ -60,4 +60,5 @@ def on_chat_sent(data):
 
 
 if __name__ == '__main__':
-    socket.run(app, host='0.0.0.0', port=80)
+    port = int(os.environ.get('PORT', 80))
+    socket.run(app, host='0.0.0.0', port=port)

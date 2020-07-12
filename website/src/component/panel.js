@@ -1,6 +1,5 @@
 import React from 'react';
 import './panel.css';
-import Iframe from 'react-iframe'
 
 class Panel extends React.Component {
 
@@ -8,7 +7,6 @@ class Panel extends React.Component {
         super(props);
         const {socket} = this.props
         this.socket = socket
-        // this.state = {'iframe_loc': 'http://www.google.com'}
     }
 
     setSocketListeners() {
@@ -22,9 +20,10 @@ class Panel extends React.Component {
             if (!url.match(/^http?:\/\//i) && !url.match(/^https?:\/\//i)) {
                 url = 'http://' + url;
             }
-            window.open(url, "_blank")
+            window.open(url, "_blank");
         })
     }
+
 
     componentDidMount() {
         this.setSocketListeners()
@@ -34,11 +33,6 @@ class Panel extends React.Component {
         return (
             <div>
                 <div className={"bg-img"}></div>
-                {/*<div className={"panel-body"}>*/}
-                {/*    <Iframe*/}
-                {/*        url={this.state.iframe_loc}*/}
-                {/*        frameBorder="0" allow="fullscreen" width="100%" height="100%"/>*/}
-                {/*</div>*/}
             </div>
 
         );
