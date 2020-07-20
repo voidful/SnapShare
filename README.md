@@ -4,6 +4,26 @@
     <img src="https://raw.githubusercontent.com/voidful/SnapShare/master/website/public/logo512.png" width="400"/>
     <br>
 </p>
+Linking Your Phone To Computer Browser With Socket.io. 
+
+## Feature
+- share link without manually copy long url.
+- no set up and download is needed for user.
+- Front-end React.
+- Back-end  Flask.
+- Connect with Socket.io.
+
+## Get Start
+1. prepare Docker in your environment
+2. Start Containers
+```
+docker-compose up
+```
+
+## Future Development
+- mode selection
+- Player remote function
+- GamePad function
 
 ## License ![PyPI - License](https://img.shields.io/github/license/voidful/SnapShare)
 
