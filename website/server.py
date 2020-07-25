@@ -5,7 +5,6 @@ import os
 
 static_dir = os.path.abspath('./build/')
 app = Flask(__name__, static_folder=static_dir)
-app.config['SECRET_KEY'] = 'development key'
 socket = SocketIO(app, cors_allowed_origins='*')
 CORS(app)
 

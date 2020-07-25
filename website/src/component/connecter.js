@@ -21,7 +21,19 @@ class Connecter extends React.Component {
     render() {
         return (
             <section id="banner" style={{z_index: -1, position: 'relative'}}>
-                <QRCode value={this.state.token} size={512} renderAs={'svg'} />
+                <div className={"snapshare"}>
+                    <img height={"100%"}
+                         src={"https://raw.githubusercontent.com/voidful/SnapShare/master/website/public/logo512.png"}>
+                    </img>
+                    <h2 className={"intro"}>SnapShare</h2>
+                </div>
+                <QRCode value={this.state.token} width={"90%"} height={"90%"} renderAs={'svg'}/>
+                <div className={"intro"}>{"Send the link via your phone. \n Scan, Paste and Magic ！"}</div>
+                <footer>
+                    <a href="https://github.com/voidful/SnapShare" target="_blank">
+                        <i className="icon-social-github icons"></i>
+                    </a>
+                </footer>
             </section>
         );
     }
