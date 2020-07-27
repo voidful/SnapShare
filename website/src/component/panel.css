@@ -1,17 +1,17 @@
 .bg-img {
     /*background: url('https://images.pexels.com/photos/4529130/pexels-photo-4529130.jpeg') center center no-repeat;*/
     background-size: cover;
-}
 
-.bg-img::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-image: linear-gradient(to bottom right, #002f4b, #11998e);
     opacity: .6;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .panel-body {

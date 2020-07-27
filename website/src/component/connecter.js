@@ -22,7 +22,7 @@ class Connecter extends React.Component {
         return (
             <section id="banner" style={{z_index: -1, position: 'relative'}}>
                 <div className={"snapshare"}>
-                    <img height={"100%"}
+                    <img height={"100%"} alt={"snapshare"}
                          src={"https://raw.githubusercontent.com/voidful/SnapShare/master/website/public/logo512.png"}>
                     </img>
                     <h2 className={"intro"}>SnapShare</h2>

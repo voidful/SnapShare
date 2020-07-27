@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Connecter from "./component/connecter"
 import Panel from "./component/panel";
