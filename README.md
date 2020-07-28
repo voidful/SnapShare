@@ -6,6 +6,8 @@
 </p>
 Linking Your Phone To Computer Browser With Socket.io. 
 
+[![CodeFactor](https://www.codefactor.io/repository/github/voidful/snapshare/badge)](https://www.codefactor.io/repository/github/voidful/snapshare)
+
 ## Feature
 - share link without manually copy long url.
 - no set up and download is needed for user.
