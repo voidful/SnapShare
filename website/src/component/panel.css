@@ -1,7 +1,6 @@
 .bg-img {
     /*background: url('https://images.pexels.com/photos/4529130/pexels-photo-4529130.jpeg') center center no-repeat;*/
     background-size: cover;
-
     content: '';
     position: fixed;
     top: 0;
@@ -24,4 +23,15 @@
     top: 0;
     background-image: linear-gradient(to bottom right, #002f4b, #11998e);
     z-index: 10;
+}
+
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
