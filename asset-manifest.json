@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/SnapShare/static/css/main.485602c0.css",
-    "main.js": "/SnapShare/static/js/main.e01e01ef.js",
+    "main.js": "/SnapShare/static/js/main.d058e7a3.js",
     "index.html": "/SnapShare/index.html",
     "main.485602c0.css.map": "/SnapShare/static/css/main.485602c0.css.map",
-    "main.e01e01ef.js.map": "/SnapShare/static/js/main.e01e01ef.js.map"
+    "main.d058e7a3.js.map": "/SnapShare/static/js/main.d058e7a3.js.map"
   },
   "entrypoints": [
     "static/css/main.485602c0.css",
-    "static/js/main.e01e01ef.js"
+    "static/js/main.d058e7a3.js"
   ]
 }
