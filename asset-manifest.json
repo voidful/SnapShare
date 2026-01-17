@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SnapShare/static/css/main.799b92bc.css",
+    "main.js": "/SnapShare/static/js/main.310a029f.js",
+    "index.html": "/SnapShare/index.html",
+    "main.799b92bc.css.map": "/SnapShare/static/css/main.799b92bc.css.map",
+    "main.310a029f.js.map": "/SnapShare/static/js/main.310a029f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.799b92bc.css",
+    "static/js/main.310a029f.js"
+  ]
+}
