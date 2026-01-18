@@ -1,16 +1,303 @@
-.bg-img {
-    /*background: url('https://images.pexels.com/photos/4529130/pexels-photo-4529130.jpeg') center center no-repeat;*/
-    background-size: cover;
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
+/* Panel Styles */
+.panel-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Desktop Wallpaper - Transparent to show Liquid Blobs */
+.desktop-environment {
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);  <-- REMOVED SOLID BG */
+    background: rgba(255, 255, 255, 0.02);
+    /* Very subtle tint */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    /* Above blobs */
+    animation: fade-in-up 0.8s ease-out;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Desktop Icons */
+.desktop-icons-area {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.icon-img {
+    font-size: 40px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.icon-label {
+    color: white;
+    font-size: 12px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+/* Windows System - Glassmorphism */
+.window-frame {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    /* Translucent */
+    backdrop-filter: blur(20px);
+    /* Blur behind */
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: box-shadow 0.2s, opacity 0.2s, transform 0.2s;
+    /* Transition for visual effects but NOT position/size to avoid lag during drag */
+}
+
+/* Minimized State */
+.window-frame.minimized {
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Resize Handle */
+.resize-handle {
+    position: absolute;
     bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom right, #002f4b, #11998e);
-    opacity: .6;
-    min-width: 100%;
-    min-height: 100%;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: se-resize;
+    z-index: 20;
+}
+
+.resize-handle::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Default positions */
+.window-browser {
+    top: 5%;
+    left: 15%;
+    width: 80%;
+    height: 80%;
+    z-index: 10;
+}
+
+.window-history {
+    top: 10%;
+    left: 10%;
+    width: 600px;
+    height: 500px;
+    z-index: 20;
+}
+
+.window-header {
+    height: 36px;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    user-select: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.window-title {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+}
+
+.window-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.control-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-close {
+    background: #ff5f56;
+}
+
+.btn-min {
+    background: #ffbd2e;
+}
+
+.btn-max {
+    background: #27c93f;
+}
+
+.window-content {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    background: white;
+}
+
+/* History Explorer */
+.history-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.history-item:hover {
+    background: #f0f7ff;
+}
+
+.file-icon {
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.file-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.file-meta {
+    font-size: 11px;
+    color: #888;
+}
+
+/* Taskbar - Glassmorphism */
+.taskbar {
+    height: 48px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: absolute;
+    bottom: 20px;
+    /* Floating look */
+    left: 20px;
+    right: 20px;
+    width: auto;
+    border-radius: 20px;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.start-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Iframe adjustment */
+.browser-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.virtual-cursor {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    /* Center the pointer tip logic if needed, but standard cursor usually top-left */
+    transform: translate(-2px, -2px);
+    z-index: 9999;
+    pointer-events: none;
+    /* Let clicks pass through if we add simulated clicks later */
+    transition: transform 0.05s ease-out;
+    /* Smooth little micro-movements */
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+    margin-left: -5px;
+    margin-top: -2px;
+}
+
+.notes-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    line-height: 1.5;
+    z-index: 1001;
+    /* Above browser-iframe (z-index 10) */
+    white-space: pre-wrap;
+    color: #333;
 }
 
 .panel-body {
@@ -27,7 +314,8 @@
 
 .player-wrapper {
     position: relative;
-    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+    padding-top: 56.25%
+        /* Player ratio: 100 / (1280 / 720) */
 }
 
 .react-player {

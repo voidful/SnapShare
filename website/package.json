@@ -1,25 +1,28 @@
 {
   "name": "snapshare",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "private": true,
+  "homepage": "https://voidful.github.io/SnapShare",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "node-sass": "^6.0.1",
-    "qrcode.react": "^1.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-player": "^2.9.0",
-    "react-scripts": "^4.0.3",
-    "screenfull": "^5.1.0",
-    "socket.io-client": "^2.3.0"
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.5.1",
+    "peerjs": "^1.5.2",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

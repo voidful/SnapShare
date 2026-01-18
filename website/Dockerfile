@@ -1,16 +1,11 @@
-FROM python
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
 
-RUN apt-get -y update
-
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-# Copy Python dependencies
-COPY requirements.txt /usr/src/app/
-RUN pip3 install -r /usr/src/app/requirements.txt
-
-# Copy source project
-COPY . /usr/src/app/
-
-CMD python3 server.py
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

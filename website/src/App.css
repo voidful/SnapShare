@@ -14,14 +14,11 @@
 }
 
 .App-header {
-    background-color: #282c34;
+    /* Background and layout handled by children (LiquidContainer, etc.) */
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
 }
 
 .App-link {
@@ -32,48 +29,162 @@
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
 
-.snapshare {
-    height: 2em;
-    margin-bottom: 1em;
-    display: inline-flex;
+/* SnapShare Banner */
+#banner {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-}
-
-.intro {
-    font-family: 'Comfortaa', sans-serif;
-    white-space: pre-line;
-    margin-top: 1em;
-    margin-left: 0.3em;
-}
-
-footer {
-    text-align: center;
-    margin: 0.5em auto;
+    gap: 1.5rem;
+    max-width: 400px;
     width: 100%;
+}
+
+.snapshare {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.snapshare img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.snapshare h2 {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(90deg, #38ef7d, #11998e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* QR Code Container */
+.qr-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.qr-container svg {
+    display: block;
+}
+
+/* Status Indicators */
+.status {
+    margin: 0.5rem 0;
+    padding: 0.5em 1.5em;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.connected {
+    color: #38ef7d;
+    font-weight: 600;
+    background: rgba(56, 239, 125, 0.1);
+    padding: 0.5em 1.5em;
+    border-radius: 20px;
+}
+
+.waiting {
+    color: rgba(255, 255, 255, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.error {
+    color: #ff6b6b;
+}
+
+.connecting {
+    color: #ffd93d;
+}
+
+/* Instructions */
+.intro {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    white-space: pre-line;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    margin-top: 1.5rem;
 }
 
 footer a {
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     color: #FFF;
-    margin: 5px;
+    transition: background 0.2s, transform 0.2s;
 }
 
 footer a:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 footer a .icons {
-    margin-top: 12px;
-    display: inline-block;
     font-size: 20px;
+}
+
+/* Notes Display */
+.notes-overlay {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px;
+    font-size: 1.5rem;
+    max-width: 80%;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
